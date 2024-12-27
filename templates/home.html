@@ -1,0 +1,52 @@
+ {% extends 'layout.html' %}
+{% block content %}
+
+<h1 class="home-heading">SmartScanAI</h1>
+<p class="home-description">Scan QR or Barcode to check for safety and view Reports.</p>
+<div class="home-options">
+    <h2>Upload Image</h2>
+    <form id="scanForm" action="/scan_image" method="POST" enctype="multipart/form-data" class="scan-form">
+        <input type="file" name="qr_image" required class="file-input">
+        <button type="submit" class="scan-btn">Scan</button>
+    </form>
+    
+    <div id="results" style="display: none;">
+        <h2>Scan Results</h2>
+        <p><strong>Scan Data:</strong> <span id="scanData"></span></p>
+        <p><strong>Status:</strong> <span id="scanStatus"></span></p>
+        <p><strong>Classification:</strong> <span id="scanClassification"></span></p>
+    </div>
+    
+    <script>
+        document.getElementById('scanForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+    
+            const formData = new FormData(this);
+            const response = await fetch('/scan_image', {
+                method: 'POST',
+                body: formData
+            });
+    
+            const result = await response.json();
+    
+            if (result.alert) {
+                alert(result.alert);
+                document.getElementById('results').style.display = 'none';
+            } else {
+                document.getElementById('scanData').textContent = result.data || 'No QR detected';
+                document.getElementById('scanStatus').textContent = result.status;
+                document.getElementById('scanClassification').textContent = result.classification;
+                document.getElementById('results').style.display = 'block';
+            }
+        });
+    </script>
+    
+
+<h2>Real-time Scan</h2>
+
+    <a href="/real_time_scan"><button class="real-time-btn">Start Real-time Scanning</button></a>
+</div> 
+
+{% endblock %}
+
+

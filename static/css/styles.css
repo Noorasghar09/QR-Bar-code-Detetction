@@ -1,0 +1,330 @@
+/* button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-bottom: 40px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+
+h1 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+h2 {
+    font-size: 28px;
+    color: #34495e;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 22px;
+    color: #34495e;
+    margin-top: 20px;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#video {
+    border: 5px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.result-container {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.result-container p {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.result-container a {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.result-container a:hover {
+    color: #2980b9;
+}
+
+
+body {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    background-size: cover;
+    background-attachment: fixed;
+     color: #fff; 
+}
+
+
+
+ 
+
+
+
+header {
+    background: #3498db;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+footer {
+    text-align: center;
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+  
+
+
+
+
+
+
+   */
+
+
+   
+ /* General Styles */
+body {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff; 
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background: #3498db;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: rgb(186, 53, 53);
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+    color: #e15e22;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+/* Scan Result Styles */
+.results-heading, .reports-heading, .home-heading, .real-time-heading {
+    font-size: 32px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.results-container, .scan-info {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-item p, .scan-info span {
+    font-size: 18px;
+    color: #34495e;
+}
+
+.status-safe {
+    color: #27ae60;
+}
+
+.status-malicious {
+    color: #e74c3c;
+}
+
+/* Table Styles */
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reports-table th, .reports-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.reports-table tr:hover {
+    background-color: #f2f2f2;
+}
+
+.malicious-row {
+    background-color: #f9c2c2;
+}
+
+/* Button Styles */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.scan-btn, .remove-btn {
+    background-color: #d12216;
+}
+
+.scan-btn:hover, .remove-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Form and Input Styles */
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Custom Links */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:hover {
+    color: #2980b9;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #2980b9;
+}
+
+/* Video Styles */
+.video-feed {
+    border: 5px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}

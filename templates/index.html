@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR/Barcode Scanner</title>
+    <style>
+        body { text-align: center; margin: 50px; }
+        #video-stream { max-width: 100%; height: auto; }
+        #upload-btn { margin-top: 20px; }
+        #qr-result { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>QR/Barcode Scanner</h1>
+    <div>
+        <video id="video-stream" autoplay></video>
+        <button id="start-btn">Start Webcam</button>
+        <button id="stop-btn">Stop Webcam</button>
+    </div>
+
+    <div>
+        <input type="file" id="upload" />
+        <button id="upload-btn">Upload Image</button>
+    </div>
+
+    <div id="qr-result"></div>
+
+    <script>
+        document.getElementById('start-btn').onclick = function() {
+            let video = document.getElementById('video-stream');
+            video.src = "/video_feed";
+        };
+
+        document.getElementById('stop-btn').onclick = function() {
+            let video = document.getElementById('video-stream');
+            video.src = "";
+        };
+
+        document.getElementById('upload-btn').onclick = function() {
+            let fileInput = document.getElementById('upload');
+            let file = fileInput.files[0];
+            let formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                let resultDiv = document.getElementById('qr-result');
+                if (data.qr_data) {
+                    let result = '<h3>Detected QR/Barcode:</h3>';
+                    data.qr_data.forEach(item => {
+                        result += `<p>Data: ${item.data}<br>Type: ${item.type}<br>Classification: ${item.classification}</p>`;
+                    });
+                    resultDiv.innerHTML = result;
+                } else {
+                    resultDiv.innerHTML = `<p>No QR/Barcode detected</p>`;
+                }
+            });
+        };
+    </script>
+</body>
+</html> 

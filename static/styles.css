@@ -1,0 +1,233 @@
+
+body {
+    background: linear-gradient(135deg, #3498db, #8e44ad);
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff; 
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background: #3498db;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 20px;
+}
+
+nav a {
+    margin: 0 10px;
+    color:  #510513;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+footer {
+    text-align: center;
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Heading Styles */
+h1, h2, h3 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    color: #16267f;
+    font-size: 60px;
+   
+    
+}
+p{
+    color: #0d1b48;
+    font-weight: bold;
+    font-size: 36px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+    color: #2980b9;
+    
+   
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    margin-left: 0%;
+    
+}
+
+div{
+    margin-left: 45%;
+    font-weight: bold;
+}
+
+
+h3 {
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+/* Scan Result Styles */
+.results-heading, .reports-heading, .home-heading, .real-time-heading {
+    font-size: 46px;
+    color: #510513;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.results-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.result-item p, .scan-info span {
+    font-size: 18px;
+    color: #e5b3fd;
+}
+
+.status-safe {
+    color: #27ae60;
+}
+
+.status-malicious {
+    color: #e74c3c;
+}
+
+/* Table Styles */
+.reports-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #ac8f8f;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.reports-table th, .reports-table td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #bc8c8c;
+}
+
+.reports-table tr:hover {
+    background-color: #8f6767;
+}
+
+.malicious-row {
+    background-color: #c67b7bbe;
+}
+
+/* Button Styles */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.scan-btn, .remove-btn {
+    background-color: #3498db;
+}
+
+.scan-btn:hover, .remove-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Form and Input Styles */
+input[type="file"] {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* Custom Links */
+a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+a:hover {
+    color: rgb(12, 24, 57);
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+    color: #2980b9;
+}
+
+/* Video Styles */
+.video-feed {
+    border: 5px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+
+
+.status-safe {
+    color: green;
+    font-weight: bold;
+}
+
+.status-malicious {
+    color: red;
+    font-weight: bold;
+}
+
+#results {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #667a3e;
+    border-radius: 5px;
+    background-color: #74b7a9;
+}
+
+#results p {
+    margin: 5px 0;
+}
+#results.scanStatus{
+    color: green;
+    font-weight: bold;
+
+}

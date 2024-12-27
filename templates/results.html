@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1 class="results-heading">QR Code Scan Results</h1>
+
+<div class="results-container">
+    <div class="result-item">
+        <h3>Scan Data:</h3>
+        <p>{{ data or "No QR detected" }}</p>
+    </div>
+    <div class="result-item">
+        <h3>Status:</h3>
+        <p class="{{ 'status-safe' if status == 'Safe' else 'status-malicious' }}">{{ status }}</p>
+    </div>
+    <div class="result-item">
+        <h3>Classification:</h3>
+        <p>{{ classification }}</p>
+    </div>
+</div>
+
+<a href="/" class="back-btn">Back to Home</a>
+
+{% endblock %}

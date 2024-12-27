@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1 class="real-time-heading">Real-time QR/Barcode Scanning</h1>
+<video id="video" width="640" height="480" autoplay class="video-feed"></video>
+<div class="scan-info">
+    <h3>Scan Data: <span id="scan-data">N/A</span></h3>
+    <h3>Status: <span id="status">N/A</span></h3>
+    <h3>Classification: <span id="classification">N/A</span></h3>
+</div>
+
+<script>
+    const video = document.getElementById("video");
+
+    // Get camera stream
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true }).then(function (stream) {
+            video.srcObject = stream;
+        });
+    }
+
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+    const scanData = document.getElementById("scan-data");
+    const status = document.getElementById("status");
+    const classification = document.getElementById("classification");
+
+    let previouslyScanned = new Set();
+
+function scanQRCode() {
+    // Set canvas size same as video dimensions
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+
+    // Draw current video frame to canvas
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Get image data as a JPEG image
+    canvas.toBlob((blob) => {
+        const formData = new FormData();
+        formData.append("qr_image", blob, "scan.jpg");
+
+        // Send the image to the server for QR/Barcode detection
+        fetch('/scan_image', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            scanData.textContent = data.data || "No QR detected";
+            status.textContent = data.status || "Safe";
+            classification.textContent = data.classification || "N/A";
+
+            // Only show alert if the QR is malicious and has not been alerted for
+            if (data.status === "Malicious" && !previouslyScanned.has(data.data)) {
+                alert("Malicious QR Code Detected: " + (data.data || "Unknown Data"));
+                previouslyScanned.add(data.data); // Add to the set to prevent duplicate alerts
+            }
+        });
+    }, 'image/jpeg');
+}
+
+
+    setInterval(scanQRCode, 1000);  // Scan every 1 second
+</script>
+
+             
+{% endblock %}
+

@@ -1,0 +1,33 @@
+ {% extends 'layout.html' %}
+{% block content %}
+<h1 class="reports-heading">Reports</h1>
+
+<table class="reports-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Classification</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for report in reports %}
+        <tr class="{{ 'malicious-row' if report[2] == 'Malicious' else '' }}">
+            <td>{{ report[0] }}</td>
+            <td>{{ report[1] }}</td>
+            <td class="{{ 'status-safe' if report[2] == 'Safe' else 'status-malicious' }}">{{ report[2] }}</td>
+            <td>{{ report[3] }}</td>
+            <td>
+                <form action="/delete_report/{{ report[0] }}" method="POST" style="display:inline;">
+                    <button type="submit" class="remove-btn">Remove</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/" class="back-btn">Back to Home</a>
+{% endblock %}
